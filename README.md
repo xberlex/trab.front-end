@@ -97,7 +97,34 @@ Rotas principais da API:
 - `PATCH /receitas/:id`: atualiza favorito, privacidade, tags ou notas.
 - `DELETE /receitas/:id?usuario=ID`: remove receita do usuario.
 
+## Pendencias identificadas na revisao
+
+- Implementar autenticacao real no backend; atualmente o `usuarioId` enviado pelo cliente permite consultar e alterar receitas de outras contas.
+- Proteger receitas privadas com autorizacao no servidor, e nao apenas com filtros visuais.
+- Adicionar controle de concorrencia ou migrar o banco JSON para um banco transacional, evitando perda de cadastros simultaneos.
+- Tornar a escrita do banco atomica e impedir que erros de leitura substituam o arquivo existente por um banco vazio.
+- Validar no backend a assinatura e o conteudo Base64 das imagens PNG, alem de limitar o corpo HTTP durante a leitura.
+- Corrigir a calculadora para fracoes, quantidades no meio do texto e conversoes entre gramas, quilos, mililitros e litros.
+- Retirar imagens Base64 do JSON principal ou criar armazenamento separado para evitar crescimento excessivo das listagens.
+- Atualizar Vite para pelo menos `8.0.16` e React Router DOM para pelo menos `7.18.0`.
+- Proteger os `JSON.parse` do localStorage contra dados invalidos.
+- Criar testes automatizados para API, banco, autenticacao, upload e calculadora de porcoes.
+
 ## Registro de alterações
+
+### 2026-06-22
+
+- Realizada nova revisao completa do front-end, backend, persistencia, Docker e dependencias.
+- Confirmado que receitas privadas podem ser acessadas sem autenticacao ao informar o `usuarioId` na API.
+- Executado teste de concorrencia: 12 requisicoes retornaram sucesso, mas somente 1 receita permaneceu no banco; os dados de teste foram removidos ao final.
+- Identificado risco de perda total do banco quando o JSON estiver corrompido ou for interrompido durante a escrita.
+- Identificada validacao incompleta de PNG no backend e ausencia de limite durante a leitura do corpo HTTP.
+- Confirmados erros da calculadora com fracoes e quantidades que nao aparecem no inicio do ingrediente.
+- Medido o banco JSON com aproximadamente 372 KB apos uma receita com imagem Base64.
+- Executado `npm audit`: encontradas 2 vulnerabilidades baixas no React Router e 1 alta no Vite.
+- Validacoes concluidas com sucesso: `npm run build` e `docker compose config`.
+- Confirmada a ausencia de testes automatizados no projeto.
+- Nenhum codigo funcional foi alterado durante a revisao.
 
 ### 2026-06-21
 
@@ -105,7 +132,8 @@ Rotas principais da API:
 - Configurado o container `app` para permanecer ativo e permitir entrada com `docker compose exec app bash`.
 - Adicionado Bash na imagem de desenvolvimento.
 - Alterado o script `dev` para `vite`, permitindo iniciar com `npm run dev -- --host`.
-- Documentado o fluxo manual `docker compose up -d`, `docker compose exec app bash` e `npm run dev -- --host`.- Substituido o campo de URL da imagem por upload de arquivo PNG no cadastro.
+- Documentado o fluxo manual `docker compose up -d`, `docker compose exec app bash` e `npm run dev -- --host`.
+- Substituido o campo de URL da imagem por upload de arquivo PNG no cadastro.
 - Adicionadas validacoes de extensao, tipo, assinatura PNG e limite de 3 MB.
 - Adicionada pre-visualizacao da imagem antes de salvar a receita.
 - Imagens PNG passam a ser armazenadas em Base64 junto da receita no banco JSON.
