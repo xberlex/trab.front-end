@@ -6,9 +6,18 @@ Aplicacao React de receitas culinarias chamada Bau do Chef.
 
 O projeto funciona como um arquivo pessoal de receitas, tecnicas, privacidade, tags, login por usuario, registro de testes culinarios e persistencia em banco de dados local.
 
+## Funcionalidades atuais
+
+- Login e cadastro por nome de usuario, com dados separados por conta.
+- Cadastro de receitas com imagem PNG, categoria, ingredientes, preparo, tags, privacidade, porcoes e notas.
+- Listagem com busca, filtros, favoritos, exclusao e calculadora de porcoes.
+- Receitas-base em portugues com imagens padronizadas para todas as contas.
+- Rotas carregadas sob demanda e pagina de erro 404 para enderecos inexistentes.
+- Persistencia em API REST local e banco JSON executados com Docker Compose.
+
 ## Estrutura principal
 
-- `src/pages`: paginas de Home, Cadastro, Listagem e Login.
+- `src/pages`: paginas de Home, Cadastro, Listagem, Login e erro 404.
 - `src/components`: componentes reutilizaveis da interface.
 - `src/contexts`: estado global de autenticacao e receitas.
 - `src/routes`: rotas com carregamento sob demanda.
@@ -51,6 +60,8 @@ npm run dev
 
 Depois acesse: http://localhost:5173
 
+Se alguma URL for digitada depois de http://localhost:5173/, o sistema agora exibe uma pagina 404 com mensagem explicando que a rota nao existe e um botao para voltar ao inicio.
+
 A API fica em: http://localhost:3333
 
 ## Como rodar com Docker Compose
@@ -75,6 +86,8 @@ npm run dev -- --host
 
 Depois acesse: http://localhost:5173
 
+O Vite esta fixado na porta `5173`. Execute `npm run dev -- --host` somente uma vez. Se aparecer a mensagem de porta ocupada, saia do container, execute `docker compose restart app`, entre novamente e inicie o Vite uma unica vez.
+
 O Compose cria o projeto `bau-do-chef`, sobe a API no servico `backend` e mantem o servico `app` ativo para desenvolvimento. O banco continua em `server/database/receitas.json`.
 
 Para sair do terminal do container, use `exit`. Para parar todos os servicos:
@@ -87,7 +100,7 @@ docker compose down
 
 As receitas ficam em `server/database/receitas.json`.
 
-Cada receita salva recebe o `usuarioId` da pessoa logada. Assim, cada cliente visualiza e altera somente as proprias receitas. No primeiro acesso de cada usuario, a API cria receitas-base em portugues para popular o bau.
+Cada receita salva recebe o `usuarioId` da pessoa logada. Assim, cada cliente visualiza e altera somente as proprias receitas. No primeiro acesso de cada usuario, a API cria receitas-base em portugues para popular o bau. As imagens dessas receitas-base sao sincronizadas com o catalogo oficial, inclusive para contas criadas anteriormente.
 
 Rotas principais da API:
 
@@ -110,10 +123,24 @@ Rotas principais da API:
 - Proteger os `JSON.parse` do localStorage contra dados invalidos.
 - Criar testes automatizados para API, banco, autenticacao, upload e calculadora de porcoes.
 
-## Registro de alterações
+## Registro de alteracoes
 
 ### 2026-06-22
 
+- Fixada a execucao do Vite na porta `5173` com `strictPort`, impedindo troca silenciosa para `5174`.
+- Documentado no fluxo Docker que o comando de desenvolvimento deve ser executado somente uma vez por container.
+- Padronizadas as imagens das receitas-base para todas as contas, usando o mesmo catalogo correto da conta Marcos.
+- Adicionada sincronizacao automatica das imagens antigas ao consultar receitas no backend.
+- Preservadas as imagens PNG e demais dados das receitas cadastradas manualmente pelos usuarios.
+- Criada pagina `NotFound.jsx` para caminhos inexistentes.
+- Adicionada rota curinga `*` com mensagem de erro 404 e botao para voltar ao inicio.
+- Garantida a exibicao do erro de rota para usuarios autenticados e nao autenticados.
+- Alterado o campo do modo de cadastro para `Nome de usuario`.
+- Adicionada validacao de 3 a 24 caracteres para nomes de usuario, aceitando letras, numeros, ponto, hifen e sublinhado.
+- Mantida compatibilidade do login com os nomes de contas existentes.
+- Adicionado botao `Cadastro` abaixo de `Destrancar` na tela de login.
+- Criado modo de cadastro no proprio formulario, com acao para voltar ao login.
+- Mantido o fluxo atual de identificacao por nome, sem alterar a autenticacao do backend.
 - Realizada nova revisao completa do front-end, backend, persistencia, Docker e dependencias.
 - Confirmado que receitas privadas podem ser acessadas sem autenticacao ao informar o `usuarioId` na API.
 - Executado teste de concorrencia: 12 requisicoes retornaram sucesso, mas somente 1 receita permaneceu no banco; os dados de teste foram removidos ao final.
@@ -177,7 +204,7 @@ Rotas principais da API:
 - Atualizado armazenamento para usar `VITE_STORAGE_PREFIX` nas chaves do localStorage.
 - Atualizado `.dockerignore` para impedir envio de `.env` ao build da imagem Docker.
 - Criada pasta `src/routes/` com `AppRoutes.jsx`.
-- Adicionado carregamento preguiÃ§oso das paginas com `React.lazy` e `Suspense`.
+- Adicionado carregamento preguicoso das paginas com `React.lazy` e `Suspense`.
 - Removidas rotas diretas de `App.jsx`, deixando o arquivo focado em autenticacao e layout.
 - Reforcada a interface com detalhes visuais de bau, fecho, molduras internas e acabamento cobre/dourado.
 - Reorganizada a pasta `src/` em `components/`, `contexts/`, `data/`, `pages/`, `utils/`, `config/` e `styles/`.
