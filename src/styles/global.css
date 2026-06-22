@@ -990,6 +990,38 @@ main {
   color: var(--wine);
 }
 
+.public-error-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--paper);
+}
+.not-found-page {
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  padding: 36px 0;
+}
+
+.not-found-panel {
+  max-width: 520px;
+  width: min(100%, 520px);
+  text-align: center;
+  padding: 44px 28px;
+}
+
+.not-found-panel h1 {
+  margin: 12px 0;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--wine);
+}
+
+.not-found-panel p {
+  margin-bottom: 18px;
+  color: var(--muted);
+}
+
 .route-loader {
   min-height: 320px;
   display: grid;
