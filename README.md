@@ -97,7 +97,7 @@ Rotas principais da API:
 - `PATCH /receitas/:id`: atualiza favorito, privacidade, tags ou notas.
 - `DELETE /receitas/:id?usuario=ID`: remove receita do usuario.
 
-## Registro de alteracoes
+## Registro de alterações
 
 ### 2026-06-21
 
@@ -198,7 +198,3 @@ Rotas principais da API:
 - Criado CSS responsivo com layout em grid e visual tematico de culinaria.
 - Projeto copiado para a pasta C:\Users\marco\Documents\Faculdade\trab.front-end.
 - Dependencias instaladas e build validada com npm.cmd run build.
-
-## Regra de trabalho
-
-A partir de agora, toda alteracao feita no projeto deve ser registrada neste README.
