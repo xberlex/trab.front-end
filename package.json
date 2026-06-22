@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 5173 --strictPort",
     "server": "node server/server.mjs",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0"
