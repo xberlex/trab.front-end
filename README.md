@@ -4,7 +4,7 @@
 
 Aplicacao React de receitas culinarias chamada Bau do Chef.
 
-O projeto funciona como um arquivo pessoal de receitas, com foco em curadoria, tecnica, privacidade, tags, login por usuario, registro de testes culinarios e persistencia em banco de dados local.
+O projeto funciona como um arquivo pessoal de receitas, tecnicas, privacidade, tags, login por usuario, registro de testes culinarios e persistencia em banco de dados local.
 
 ## Estrutura principal
 
