@@ -1,6 +1,93 @@
 {
   "receitas": [
     {
+      "nome": "Bolo de Chocolate Classico",
+      "categoria": "Sobremesa",
+      "ingredientes": "2 xicaras farinha de trigo, 1 xicara acucar, 3 ovos, 200 g chocolate em po, 240 ml leite, 1 colher fermento",
+      "modoPreparo": "Misture os ingredientes secos, incorpore ovos e leite aos poucos, finalize com fermento e asse por 35 minutos.",
+      "imagem": "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=900&q=80",
+      "origem": "Bau pessoal",
+      "favorito": false,
+      "tags": [
+        "Receita de familia",
+        "Tempo de preparo: Medio"
+      ],
+      "privacidade": "privada",
+      "porcoesBase": 8,
+      "notas": "Teste 1: massa macia. Teste 2: reduzir 10 g de chocolate se quiser sabor mais leve.",
+      "id": "base-julia-1",
+      "usuarioId": "julia",
+      "dono": "Julia",
+      "criadaEm": "2026-06-22T21:42:52.890Z",
+      "atualizadaEm": "2026-06-22T21:49:07.405Z"
+    },
+    {
+      "nome": "Risoto de Cogumelos",
+      "categoria": "Prato principal",
+      "ingredientes": "320 g arroz arboreo, 250 g cogumelos, 1 litro caldo de legumes, 80 g parmesao, 40 g manteiga",
+      "modoPreparo": "Refogue os cogumelos, sele o arroz, adicione caldo aos poucos e finalize com manteiga e parmesao fora do fogo.",
+      "imagem": "https://veganoporquesim.com.br/wp-content/uploads/2023/06/Risoto-de-Cogumelos.webp",
+      "origem": "Bau pessoal",
+      "favorito": false,
+      "tags": [
+        "Tecnicas Italianas",
+        "Fundo de legumes",
+        "Panela"
+      ],
+      "privacidade": "publica",
+      "porcoesBase": 4,
+      "notas": "Teste 1: manter o caldo quente deixou o arroz mais uniforme.",
+      "id": "base-julia-2",
+      "usuarioId": "julia",
+      "dono": "Julia",
+      "criadaEm": "2026-06-22T21:42:52.891Z",
+      "atualizadaEm": "2026-06-22T21:47:49.189Z"
+    },
+    {
+      "nome": "Moqueca de Banana-da-terra",
+      "categoria": "Prato principal",
+      "ingredientes": "4 bananas-da-terra, 300 ml leite de coco, 2 tomates, 1 pimentao, 1 cebola, 20 ml azeite de dende",
+      "modoPreparo": "Monte camadas com legumes e banana, regue com leite de coco e azeite de dende, cozinhe tampado ate ficar macio.",
+      "imagem": "https://www.receitasnestle.com.br/sites/default/files/srh_recipes/fa9cb9b8650c8df16aebf1baba33885d.jpg",
+      "origem": "Bau pessoal",
+      "favorito": false,
+      "tags": [
+        "Brasileira",
+        "Vegetariana",
+        "Panela"
+      ],
+      "privacidade": "publica",
+      "porcoesBase": 4,
+      "notas": "Teste 1: banana bem madura traz mais dulcor e contrasta melhor com o dende.",
+      "id": "base-julia-3",
+      "usuarioId": "julia",
+      "dono": "Julia",
+      "criadaEm": "2026-06-22T21:42:52.891Z",
+      "atualizadaEm": "2026-06-22T21:47:49.194Z"
+    },
+    {
+      "nome": "Pao de Queijo de Frigideira",
+      "categoria": "Lanche",
+      "ingredientes": "1 ovo, 60 g polvilho doce, 40 g queijo meia cura, 30 ml leite, 1 pitada sal",
+      "modoPreparo": "Misture tudo ate formar massa cremosa, despeje em frigideira untada e doure dos dois lados em fogo baixo.",
+      "imagem": "https://s2.glbimg.com/iosZ2q4v2DnN2pnLoXqu6tkYIvo=/512x320/smart/e.glbimg.com/og/ed/f/original/2018/09/24/pao-de-queijo-de-frigideira.jpg",
+      "origem": "Bau pessoal",
+      "favorito": false,
+      "tags": [
+        "Rapida",
+        "Sem gluten",
+        "Cafe da manha"
+      ],
+      "privacidade": "privada",
+      "porcoesBase": 1,
+      "notas": "Teste 1: fogo baixo evita queimar antes de firmar o centro.",
+      "id": "base-julia-4",
+      "usuarioId": "julia",
+      "dono": "Julia",
+      "criadaEm": "2026-06-22T21:42:52.891Z",
+      "atualizadaEm": "2026-06-22T21:47:49.194Z"
+    },
+    {
       "id": "2896008c-4070-438b-8259-8695e1935dec",
       "usuarioId": "lucas",
       "dono": "Lucas",
@@ -286,6 +373,7 @@
     "teste-codex",
     "marcos",
     "marcos-antonio",
-    "lucas"
+    "lucas",
+    "julia"
   ]
 }
