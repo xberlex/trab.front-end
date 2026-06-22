@@ -1,7 +1,7 @@
 name: bau-do-chef
 
 services:
-  backend:
+  backend: 
     build:
       context: .
       dockerfile: docker/Dockerfile.server
