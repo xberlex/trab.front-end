@@ -796,6 +796,22 @@ main {
   font-size: 1.55rem;
 }
 
+.login-form-note {
+  margin: -4px 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.login-form-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.login-form-actions .primary-button,
+.login-form-actions .secondary-button {
+  width: 100%;
+}
+
 .form-grid.two-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
