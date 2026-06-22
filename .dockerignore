@@ -9,4 +9,4 @@ README.md
 npm-debug.log
 Dockerfile
 Dockerfile.*
-docker-compose*.yml
+docker-compose*.yml 

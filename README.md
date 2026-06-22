@@ -247,7 +247,7 @@ Rotas principais da API:
 - Criadas rotas principais: Home, Cadastro e Listagem.
 - Implementado Context API para compartilhar receitas entre paginas.
 - Criado formulario de cadastro com validacao de campos obrigatorios.
-- Criada listagem dinamica com cards, busca por nome, filtro por categoria e filtro de favoritas.
+- Criada listagem dinamica com cards, busca por nome, filtro por categoria e filtro de favoritas. 
 - Adicionada integracao com a API TheMealDB para exibir receitas externas.
 - Adicionado suporte a favoritos, exclusao de receitas cadastradas e persistencia no localStorage.
 - Criado CSS responsivo com layout em grid e visual tematico de culinaria.
