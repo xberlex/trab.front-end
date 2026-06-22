@@ -38,6 +38,27 @@ function montarReceitaBase(receita, usuario, indice) {
   };
 }
 
+function sincronizarImagensReceitasBase(banco) {
+  let alterado = false;
+
+  banco.receitas = banco.receitas.map((receita) => {
+    const prefixoId = `base-${receita.usuarioId}-`;
+    if (!String(receita.id || "").startsWith(prefixoId)) return receita;
+
+    const indiceBase = Number(String(receita.id).slice(prefixoId.length)) - 1;
+    const imagemCorreta = receitasBase[indiceBase]?.imagem;
+    if (!imagemCorreta || receita.imagem === imagemCorreta) return receita;
+
+    alterado = true;
+    return {
+      ...receita,
+      imagem: imagemCorreta,
+      atualizadaEm: new Date().toISOString(),
+    };
+  });
+
+  return alterado;
+}
 function normalizarReceita(corpo, usuario) {
   const nome = String(corpo.nome || "").trim();
   const ingredientes = String(corpo.ingredientes || "").trim();
@@ -87,14 +108,17 @@ function normalizarReceita(corpo, usuario) {
 async function listarReceitas(url) {
   const usuario = obterUsuario(url);
   const banco = await lerBanco();
+  let bancoAlterado = sincronizarImagensReceitasBase(banco);
   const usuarioNovo = !banco.usuariosInicializados.includes(usuario.usuarioId);
 
   if (usuarioNovo) {
     const iniciais = receitasBase.map((receita, indice) => montarReceitaBase(receita, usuario, indice));
     banco.receitas = [...iniciais, ...banco.receitas];
     banco.usuariosInicializados = [...banco.usuariosInicializados, usuario.usuarioId];
-    await salvarBanco(banco);
+    bancoAlterado = true;
   }
+
+  if (bancoAlterado) await salvarBanco(banco);
 
   return ordenarRecentes(banco.receitas.filter((receita) => receita.usuarioId === usuario.usuarioId));
 }
