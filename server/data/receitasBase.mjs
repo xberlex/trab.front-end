@@ -52,3 +52,5 @@ export const receitasBase = [
     notas: "Teste 1: fogo baixo evita queimar antes de firmar o centro.",
   },
 ];
+
+
